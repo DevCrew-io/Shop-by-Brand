@@ -146,4 +146,5 @@ As products are assigned to a specific brand, it is necessary to show brand info
 If you want to include any feature or find any bugs, let us know at [hello@devcrew.io](mailto:hello@devcrew.io) 
 
 ## Our Shop By Brand (Pro) Extension
+
 You can purchase our Pro version here: [Shop By Brand (Pro)](https://devcrew.io/product/magento-shop-by-brand-extension/)
