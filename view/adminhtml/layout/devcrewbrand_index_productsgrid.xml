@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author DevCrew Team
+ * @copyright Copyright (c) 2023 DevCrew {https://devcrew.io}
+ */
+ -->
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <container name="devcrew.brand.products" label="Brand Products">
+        <block class="Devcrew\Brand\Block\Adminhtml\Index\Edit\Tab\Products" name="devcrew.brand.edit.products"/>
+    </container>
+</layout>

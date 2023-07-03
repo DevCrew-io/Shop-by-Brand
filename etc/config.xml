@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author DevCrew Team
+ * @copyright Copyright (c) 2023 DevCrew {https://devcrew.io}
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <devcrew_brand>
+            <general>
+                <enable>0</enable>
+                <title>Brands</title>
+                <router>devcrewbrand</router>
+            </general>
+            <widget_settings>
+                <limit>12</limit>
+                <show_name>1</show_name>
+                <slide>1</slide>
+                <margin>10</margin>
+                <loop>true</loop>
+                <autoplay>true</autoplay>
+                <autoplay_timeout>5000</autoplay_timeout>
+                <autoplay_pause_hover>true</autoplay_pause_hover>
+                <nav>false</nav>
+                <dots>false</dots>
+                <speed>300</speed>
+                <mobile>1</mobile>
+                <large_mobile>2</large_mobile>
+                <tablet>3</tablet>
+                <laptop>4</laptop>
+                <desktop>5</desktop>
+            </widget_settings>
+            <list_page_setting>
+                <show_product_count>0</show_product_count>
+                <show_name>1</show_name>
+                <slide>1</slide>
+                <margin>10</margin>
+                <loop>true</loop>
+                <autoplay>true</autoplay>
+                <autoplay_timeout>5000</autoplay_timeout>
+                <autoplay_pause_hover>true</autoplay_pause_hover>
+                <nav>false</nav>
+                <dots>false</dots>
+                <speed>300</speed>
+                <mobile>1</mobile>
+                <large_mobile>2</large_mobile>
+                <tablet>3</tablet>
+                <laptop>4</laptop>
+                <desktop>5</desktop>
+            </list_page_setting>
+            <product_page_setting>
+                <show_brand_logo>0</show_brand_logo>
+            </product_page_setting>
+            <brands_block>
+                <show_block>0</show_block>
+            </brands_block>
+        </devcrew_brand>
+    </default>
+</config>

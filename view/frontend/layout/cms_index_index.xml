@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author DevCrew Team
+ * @copyright Copyright (c) 2023 DevCrew {https://devcrew.io}
+ */
+ -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+		<referenceContainer name="content">
+			<block class="Devcrew\Brand\Block\BrandTab" name="devcrew.brands.tab" after="-"
+                   template="Devcrew_Brand::block/brands.phtml" ifconfig="devcrew_brand/general/enable"/>
+        </referenceContainer>
+	</body>
+</page>

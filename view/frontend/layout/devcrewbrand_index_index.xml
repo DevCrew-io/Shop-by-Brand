@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author DevCrew Team
+ * @copyright Copyright (c) 2023 DevCrew {https://devcrew.io}
+ */
+ -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Devcrew\Brand\Block\ListBrand" name="devcrew_brand_list" template="brand/list.phtml"
+                   ifconfig="devcrew_brand/general/enable">
+                <arguments>
+                    <argument name="brand_view_model" xsi:type="object">Devcrew\Brand\ViewModel\Brand</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

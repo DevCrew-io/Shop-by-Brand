@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author DevCrew Team
+ * @copyright Copyright (c) 2023 DevCrew {https://devcrew.io}
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <!-- Sidebar Menu -->
+        <add id="Magento_Backend::devcrew_brand_menu"
+             title="DevCrew"
+             module="Devcrew_Brand"
+             sortOrder="61"
+             resource="Magento_Backend::devcrew_brand_menu"/>
+
+        <!-- Sub Menus -->
+        <add id="Devcrew_Brand::devcrew_brand_management"
+             title="Shop By Brand"
+             module="Devcrew_Brand"
+             sortOrder="10"
+             resource="Devcrew_Brand::devcrew_brand_management"
+             parent="Magento_Backend::devcrew_brand_menu"/>
+        <add id="Devcrew_Brand::devcrew_manage_brand"
+             title="Manage Brands"
+             module="Devcrew_Brand"
+             sortOrder="10"
+             resource="Devcrew_Brand::devcrew_brand_management"
+             action="devcrewbrand/index/index"
+             parent="Devcrew_Brand::devcrew_brand_management"/>
+    </menu>
+</config>

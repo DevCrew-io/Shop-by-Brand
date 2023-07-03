@@ -1,0 +1,142 @@
+/**
+ * @author DevCrew Team
+ * @copyright Copyright (c) 2023 DevCrew {https://devcrew.io}
+ */
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .devcrew-tab-brands {
+        text-align: center;
+        .devcrew-brand-list {
+            display: block;
+            overflow: hidden;
+            .item {
+                float: left;
+                width: calc(100% / 6);
+                box-sizing: border-box;
+                padding: 0 5px 5px 5px;
+                .image {
+                    height: 170px;
+                    position: relative;
+                    .img-responsive {
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        margin: auto;
+                        max-width: 100%;
+                        max-height: 170px;
+                        position: absolute;
+                    }
+                }
+                .name {
+                    margin-top: 10px;
+                }
+            }
+        }
+        .brands-view-all {
+            margin-top: 15px;
+        }
+    }
+    .devcrew-product-brand {
+        word-break: break-all;
+        word-wrap: break-word;
+        .devcrew-brand-info {
+            .brand-label {
+                margin-right: 5px;
+            }
+            .brand-title {
+                display: inline-block;
+            }
+        }
+        .devcrew-brand-logo {
+            max-height: 100px;
+        }
+    }
+    .devcrew-brands-block {
+        display: grid;
+        padding: 15px 5px;
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+    .devcrew-tab-brands {
+        .devcrew-brand-list {
+            .item {
+                float: left;
+                width: calc(100% / 2);
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: @screen__xs) and (max-width: (@screen__m - 1)) {
+    .devcrew-tab-brands {
+        .devcrew-brand-list {
+            .item {
+                float: left;
+                width: calc(100% / 3);
+            }
+        }
+    }
+}
+
+//
+//  Medium Devices
+//  _____________________________________________
+
+& when (@media-target = 'desktop'), (@media-target = 'all') {
+    @media only screen and (min-width: @screen__m) and (max-width: (@screen__l - 1)) {
+        .devcrew-tab-brands {
+            .devcrew-brand-list {
+                .item {
+                    float: left;
+                    width: calc(100% / 4);
+                }
+            }
+        }
+    }
+}
+
+//
+//  Extra Small to Medium Devices
+//  _____________________________________________
+
+@media only screen and (min-width: @screen__xxs) and (max-width: (@screen__m - 1)) {
+    .devcrew-tab-brands {
+        .brand-form-search {
+            .brand-label {
+                display: none;
+            }
+            input {
+                position: static !important;
+            }
+            .actions {
+                .search {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .devcrew-tab-brands {
+        .brand-search {
+            float: none;
+            margin-bottom: 50px !important;
+            display: inline-block;
+        }
+    }
+}

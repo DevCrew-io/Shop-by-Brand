@@ -1,0 +1,34 @@
+<?php
+/**
+ * @author DevCrew Team
+ * @copyright Copyright (c) 2023 DevCrew {https://devcrew.io}
+ */
+
+use Devcrew\Brand\Block\Product;
+
+/** @var Product $block */
+$brand = $block->getBrand();
+
+if ($brand && $brand['title']):
+    ?>
+    <div class="devcrew-product-brand">
+        <div class="devcrew-brand-info">
+            <span class="brand-label"><?= /** @noEscape */ __('Brand') ?> :</span>
+            <div class="brand-title" itemprop="brand">
+                <a href="<?= $block->escapeUrl($block->getBrandUrl($brand['url_key'])); ?>"
+                   title="<?= $block->escapeHtml($brand['title']) ?>">
+                    <?= $block->escapeHtml($brand['title']) ?>
+                </a>
+            </div>
+        </div>
+
+        <?php if ($brand['image']): ?>
+        <a href="<?= $block->escapeUrl($block->getBrandUrl($brand['url_key'])); ?>">
+            <img class="devcrew-brand-logo"
+                 src="<?= $block->escapeHtmlAttr($block->getBrandImageUrl($brand['image'])) ?>"
+                 title="<?= $block->escapeHtml($brand['title']) ?>"
+                 alt="<?= /** @noEscape  */ __('brand-logo') ?>"/>
+        </a>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>

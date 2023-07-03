@@ -1,0 +1,45 @@
+<?php
+/**
+ * @author DevCrew Team
+ * @copyright Copyright (c) 2023 DevCrew {https://devcrew.io}
+ */
+
+use Devcrew\Brand\Block\BrandTab;
+
+/** @var BrandTab $block */
+$brands = $block->getHomePageBrands();
+if ($block->canShowBlock()):
+    ?>
+    <div class="devcrew-tab-brands devcrew-brands-block">
+        <?php if (!$brands->count()): ?>
+            <div class="message info empty">
+                <?= /* @noEscape */ __('We can\'t find brands matching the selection') ?>
+            </div>
+        <?php else: ?>
+            <div class="devcrew-brand-list">
+                <?php foreach ($brands as $brand): ?>
+                    <?php $href = $block->getBrandUrl($brand->getUrlKey()); ?>
+                    <div class="item">
+                        <div class="image">
+                            <a href="<?= $block->escapeUrl($href) ?>">
+                                <img class="img-responsive"
+                                     src="<?= $block->escapeUrl($block->getImageSrc($brand->getImage())) ?>"
+                                     alt="<?= $block->escapeHtmlAttr($brand->getName()) ?>"/>
+                            </a>
+                        </div>
+                        <div class="name">
+                            <a class="link-brand" href="<?= $block->escapeUrl($href) ?>">
+                                <?= $block->escapeHtml($brand->getTitle()) ?>
+                            </a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <div class="brands-view-all">
+                <a href="<?= $block->escapeUrl($block->getBrandListURL()) ?>">
+                    <?= /* @noEscape */ __('View All') ?>
+                </a>
+            </div>
+        <?php endif;?>
+    </div>
+<?php endif; ?>

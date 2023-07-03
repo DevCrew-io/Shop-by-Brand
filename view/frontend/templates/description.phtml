@@ -1,0 +1,16 @@
+<?php
+/**
+ * @author DevCrew Team
+ * @copyright Copyright (c) 2023 DevCrew {https://devcrew.io}
+ */
+
+use Devcrew\Brand\Block\Product\ListBrandProduct;
+
+/** @var ListBrandProduct $block */
+$description = $block->getBrandDescription();
+?>
+<?php if ($description): ?>
+    <div class="category-description">
+        <?= /** @noEscape */ $description ?>
+    </div>
+<?php endif; ?>

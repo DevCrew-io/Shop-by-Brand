@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author DevCrew Team
+ * @copyright Copyright (c) 2023 DevCrew {https://devcrew.io}
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+	<acl>
+	    <resources>
+	        <resource id="Magento_Backend::admin">
+	        	<resource id="Magento_Backend::devcrew_brand_menu" title="DevCrew" sortOrder="10">
+	        	    <resource id="Devcrew_Brand::devcrew_brand_management" title="Shop By Brand" sortOrder="10">
+	        	        <resource id="Devcrew_Brand::devcrew_manage_brand" title="Manage Brands" sortOrder="10" />
+	        	    </resource>
+	        	</resource>
+	            <resource id="Magento_Backend::stores">
+	                <resource id="Magento_Backend::stores_settings">
+	                    <resource id="Magento_Config::config">
+	                        <resource id="Devcrew_Brand::devcrew_brand_configurations" title="Shop By Brand" />
+	                    </resource>
+	                </resource>
+	            </resource>
+	        </resource>
+	    </resources>
+	</acl>
+</config>

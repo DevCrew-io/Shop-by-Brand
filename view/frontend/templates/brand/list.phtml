@@ -1,0 +1,71 @@
+<?php
+/**
+ * @author DevCrew Team
+ * @copyright Copyright (c) 2023 DevCrew {https://devcrew.io}
+ */
+
+use Devcrew\Brand\Block\ListBrand;
+use Devcrew\Brand\ViewModel\Brand;
+
+/** @var ListBrand $block */
+/** @var Brand $brandViewModel */
+$brandViewModel = $block->getData('brand_view_model');
+
+$productCount = $brandViewModel->showBrandListProductCount();
+$brands = $block->getBrands();
+$keyword = $block->getRequest()->getParam('keyword');
+?>
+<div class="devcrew-tab-brands" >
+    <div class="block block-search brand-search">
+        <form class="form minisearch form-search brand-form-search"
+              id="devcrew_search_brand_form"
+              action="<?= $block->escapeUrl($brandViewModel->getBrandListUrl()) ?>"
+              method="get">
+            <div class="field search">
+                <label class="label brand-label" for="keyword">
+                    <span><?= /* @noEscape */ __('Search brand') ?></span>
+                </label>
+                <div class="control-search">
+                    <input class ="keyword"
+                           type="text"
+                           name="keyword"
+                           placeholder="<?= /* @noEscape */ __('Search brand') ?>"
+                           value="<?= $block->escapeHtml($keyword) ?>"/>
+                </div>
+                <div class="actions">
+                    <button type="submit" title="<?= /* @noEscape */ __('Search') ?>" class="action search">
+                        <span><?= /* @noEscape */ __('Search') ?></span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <?php if (!$brands->count()): ?>
+    <div class="message info empty">
+        <?= /* @noEscape */ __('We can\'t find brands matching the selection') ?>
+    </div>
+    <?php else: ?>
+    <div class="devcrew-brand-list">
+        <?php foreach ($brands as $brand): ?>
+            <?php $href = $brandViewModel->getBrandUrl($brand->getUrlKey()); ?>
+            <div class="item">
+                <div class="image">
+                    <a href="<?= $block->escapeUrl($href) ?>">
+                        <img class="img-responsive"
+                             src="<?= $block->escapeUrl($brandViewModel->getImageSrc($brand->getImage())) ?>"
+                             alt="<?= $block->escapeHtmlAttr($brand->getName()) ?>"/>
+                    </a>
+                </div>
+                <div class="name">
+                    <a class="link-brand" href="<?= $block->escapeUrl($href) ?>">
+                        <?= $block->escapeHtml($brand->getTitle()) ?>
+                        <?php if ($productCount): ?>
+                            <span>(<?= $block->escapeHtml($block->getProductCount($brand->getId())) ?>)</span>
+                        <?php endif ?>
+                    </a>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <?php endif;?>
+</div>

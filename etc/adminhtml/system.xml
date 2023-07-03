@@ -1,0 +1,287 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author DevCrew Team
+ * @copyright Copyright (c) 2023 DevCrew {https://devcrew.io}
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="devcrew" translate="label" sortOrder="10">
+            <label>DevCrew</label>
+        </tab>
+        <section id="devcrew_brand" translate="label" sortOrder="200" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <class>separator-top</class>
+            <label>Shop By Brand</label>
+            <tab>devcrew</tab>
+            <resource>Devcrew_Brand::devcrew_brand_configurations</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>General Configuration</label>
+                <field id="enable" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Shop By Brand</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label comment" type="text" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title</label>
+                    <comment>Title</comment>
+                    <depends><field id="enable">1</field></depends>
+                </field>
+                <field id="router" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Brands Listing URL</label>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+            </group>
+            <group id="widget_settings" translate="label" type="text" sortOrder="20" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>Widget Slider Setting</label>
+                <field id="paid_ext_notice" translate="label" type="text" sortOrder="1" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label><![CDATA[<p style="color: #FF0000;">Note: Unlock disabled features with our <a href="https://devcrew.io/product/magento-shop-by-brand-extension/">PAID</a> module</p>]]></label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="limit" translate="label comment" type="text" sortOrder="30" showInDefault="1"
+                       showInWebsite="1">
+                    <label>No of Brands to Show</label>
+                    <comment>Add limit between 1 and 50</comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="show_name" translate="label comment" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Show Brand Name</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="slide" translate="label comment" type="select" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Slide</label>
+                    <comment>Enable Slider Feature</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="margin" translate="label comment" type="text" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Slides Margin</label>
+                    <comment>Margin (left/right) of brand slides</comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="loop" translate="label comment" type="text" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Loop</label>
+                    <comment>Infinite Loop for Slides</comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="autoplay" translate="label comment" type="text" sortOrder="60" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Autoplay</label>
+                    <comment>Autoplay Slides</comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="autoplay_timeout" translate="label comment" type="text" sortOrder="70" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Autoplay Timeout</label>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="autoplay_pause_hover" translate="label comment" type="text" sortOrder="80"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Autoplay Pause on Hover</label>
+                    <comment>Autoplay</comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="nav" translate="label comment" type="text" sortOrder="90" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Navigation Arrows</label>
+                    <comment>Next/Back Slide Navigation Arrows</comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="dots" translate="label comment" type="text" sortOrder="100" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Dots</label>
+                    <comment>Pager</comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="speed" translate="label comment" type="text" sortOrder="110" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Speed</label>
+                    <comment>Autoplay Slides Speed</comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="heading_responsive" translate="label comment" sortOrder="120" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Responsive Setting</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="mobile" translate="label comment" type="text" sortOrder="130" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Mobile Devices</label>
+                    <comment><![CDATA[Number of slides shown when screen ( Size <= 480px ) ]]></comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="large_mobile" translate="label comment" type="text" sortOrder="140" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Large Mobile Devices</label>
+                    <comment><![CDATA[Number of slides shown when screen ( 481px <= Size < 767px ) ]]></comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="tablet" translate="label comment" type="text" sortOrder="150" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Tablet</label>
+                    <comment><![CDATA[Number of slides shown when screen ( 768px <= Size < 991px ) ]]></comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="laptop" translate="label comment" type="text" sortOrder="160" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Laptop</label>
+                    <comment><![CDATA[Number of slides shown when screen ( 992px <= Size < 1199px ) ]]></comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="desktop" translate="label comment" type="text" sortOrder="170"  showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Large Scale Devices</label>
+                    <comment><![CDATA[Number of slides shown when screen ( Size >= 1200 ) ]]></comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+            </group>
+            <group id="list_page_setting" translate="label" type="text" sortOrder="30" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>Brand List Page Setting</label>
+                <field id="paid_ext_notice" translate="label" type="text" sortOrder="1" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label><![CDATA[<p style="color: #FF0000;">Note: Unlock disabled features with our <a href="https://devcrew.io/product/magento-shop-by-brand-extension/">PAID</a> module</p>]]></label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="show_product_count" translate="label comment" type="select" sortOrder="10"  showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Show Product Count</label>
+                    <comment>Display the product number next to the Brand name.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_name" translate="label comment" type="text" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Show Brand Name</label>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="heading_slide" translate="label comment" sortOrder="30" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Slider Setting</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="slide" translate="label comment" type="select" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Slide</label>
+                    <comment>Enable Slider Feature</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="margin" translate="label comment" type="text" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Slides Margin</label>
+                    <comment>Margin (left/right) of brand slides</comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="loop" translate="label comment" type="text" sortOrder="60" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Loop</label>
+                    <comment>Infinite Loop for Slides</comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="autoplay" translate="label comment" type="text" sortOrder="70" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Autoplay</label>
+                    <comment>Autoplay Slides</comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="autoplay_timeout" translate="label comment" type="text" sortOrder="80" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Autoplay Timeout</label>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="autoplay_pause_hover" translate="label comment" type="text" sortOrder="90"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Autoplay Pause on Hover</label>
+                    <comment>Autoplay</comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="nav" translate="label comment" type="text" sortOrder="100" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Navigation Arrows</label>
+                    <comment>Next/Back Slide Navigation Arrows</comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="dots" translate="label comment" type="text" sortOrder="110" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Dots</label>
+                    <comment>Pager</comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="speed" translate="label comment" type="text" sortOrder="120" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Speed</label>
+                    <comment>Autoplay Slides Speed</comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="heading_responsive" translate="label comment" sortOrder="130" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Responsive Setting</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="mobile" translate="label comment" type="text" sortOrder="140" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Mobile Devices</label>
+                    <comment><![CDATA[Number of slides shown when screen ( Size <= 480px ) ]]></comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="large_mobile" translate="label comment" type="text" sortOrder="150" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Large Mobile Devices</label>
+                    <comment><![CDATA[Number of slides shown when screen ( 481px <= Size < 767px ) ]]></comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="tablet" translate="label comment" type="text" sortOrder="160" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Tablet</label>
+                    <comment><![CDATA[Number of slides shown when screen ( 768px <= Size < 991px ) ]]></comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="laptop" translate="label comment" type="text" sortOrder="170" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Laptop</label>
+                    <comment><![CDATA[Number of slides shown when screen ( 992px <= Size < 1199px ) ]]></comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+                <field id="desktop" translate="label comment" type="text" sortOrder="180"  showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Large Scale Devices</label>
+                    <comment><![CDATA[Number of slides shown when screen ( Size >= 1200 ) ]]></comment>
+                    <frontend_model>Devcrew\Brand\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+            </group>
+            <group id="product_page_setting" translate="label" type="text" sortOrder="40" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>Product Detail Page Setting</label>
+                <field id="show_brand_logo" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Show Logo on Product Page</label>
+                    <comment>Show brand logo and name on product detail page</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <depends><field id="*/general/enable">1</field></depends>
+            </group>
+            <group id="brands_block" translate="label" type="text" sortOrder="50" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>Brands Block</label>
+                <field id="show_block" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Show Brand Block on Homepage</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <depends><field id="*/general/enable">1</field></depends>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author DevCrew Team
+ * @copyright Copyright (c) 2023 DevCrew {https://devcrew.io}
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Devcrew\Brand\Api\Data\BrandSearchResultsInterface" type="Devcrew\Brand\Model\BrandSearchResults"/>
+    <preference for="Devcrew\Brand\Api\Data\BrandInterface" type="Devcrew\Brand\Model\Brand"/>
+    <preference for="Devcrew\Brand\Api\BrandRepositoryInterface" type="Devcrew\Brand\Model\BrandRepository"/>
+    <virtualType name="BrandGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="BrandGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Devcrew\Brand\Model\ResourceModel\Brand\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">BrandGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Devcrew\Brand\Model\ResourceModel\Brand\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">devcrew_brand</argument>
+            <argument name="resourceModel" xsi:type="string">Devcrew\Brand\Model\ResourceModel\Brand</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="devcrewbrand_index_listing_data_source" xsi:type="string">Devcrew\Brand\Model\ResourceModel\Brand\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Devcrew\Brand\Model\ResourceModel\Brand\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">devcrew_brand</argument>
+            <argument name="eventPrefix" xsi:type="string">devcrew_brand_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">devcrew_brand_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Devcrew\Brand\Model\ResourceModel\Brand</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\Model\Entity\RepositoryFactory">
+        <arguments>
+            <argument name="entities" xsi:type="array">
+                <item name="Devcrew\Brand\Api\Data\BrandInterface" xsi:type="string">Devcrew\Brand\Api\BrandRepositoryInterface</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\EntityManager\MetadataPool">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="Devcrew\Brand\Api\Data\BrandInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">devcrew_brand</item>
+                    <item name="identifierField" xsi:type="string">brand_id</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\EntityManager\Operation\ExtensionPool">
+        <arguments>
+            <argument name="extensionActions" xsi:type="array">
+                <item name="Devcrew\Brand\Api\Data\BrandInterface" xsi:type="array">
+                    <item name="read" xsi:type="array">
+                        <item name="storeReader" xsi:type="string">Devcrew\Brand\Model\ResourceModel\Brand\Relation\Store\ReadHandler</item>
+                    </item>
+                    <item name="create" xsi:type="array">
+                        <item name="storeCreator" xsi:type="string">Devcrew\Brand\Model\ResourceModel\Brand\Relation\Store\SaveHandler</item>
+                    </item>
+                    <item name="update" xsi:type="array">
+                        <item name="storeUpdater" xsi:type="string">Devcrew\Brand\Model\ResourceModel\Brand\Relation\Store\SaveHandler</item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\EntityManager\HydratorPool">
+        <arguments>
+            <argument name="hydrators" xsi:type="array">
+                <item name="Devcrew\Brand\Api\Data\BrandInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

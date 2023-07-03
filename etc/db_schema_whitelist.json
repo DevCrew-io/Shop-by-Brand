@@ -1,0 +1,48 @@
+{
+    "devcrew_brand": {
+        "column": {
+            "brand_id": true,
+            "title": true,
+            "description": true,
+            "url_key": true,
+            "meta_title": true,
+            "meta_keywords": true,
+            "meta_description": true,
+            "image": true,
+            "banner_image": true,
+            "position": true,
+            "status": true,
+            "creation_time": true,
+            "update_time": true
+        },
+        "index": {
+            "DEVCREW_BRAND_TITLE_DESCRIPTION_META_KEYWORDS_META_DESCRIPTION": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "devcrew_brand_products": {
+        "column": {
+            "entity_id": true,
+            "brand_id": true,
+            "product_id": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "DEVCREW_BRAND_PRODUCTS_BRAND_ID_DEVCREW_BRAND_BRAND_ID": true,
+            "DEVCREW_BRAND_PRDS_PRD_ID_CAT_PRD_ENTT_ENTT_ID": true
+        }
+    },
+    "devcrew_brand_store": {
+        "column": {
+            "brand_id": true,
+            "store_id": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "DEVCREW_BRAND_STORE_BRAND_ID_DEVCREW_BRAND_BRAND_ID": true,
+            "DEVCREW_BRAND_STORE_STORE_ID_STORE_STORE_ID": true
+        }
+    }
+}

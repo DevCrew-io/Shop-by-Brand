@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author DevCrew Team
+ * @copyright Copyright (c) 2023 DevCrew {https://devcrew.io}
+ */
+ -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Devcrew\Brand\Block\Adminhtml\Index\Edit" name="brands_index_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Devcrew\Brand\Block\Adminhtml\Index\Edit\Tabs" name="devcrewbrand_index_edit_tabs">
+                <block class="Devcrew\Brand\Block\Adminhtml\Index\Edit\Tab\Main" name="devcrewbrand_index_edit_tab_main"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">devcrewbrand_index_edit_tab_main</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">brand_products</argument>
+                    <argument name="block" xsi:type="array">
+                        <item name="label" xsi:type="string">Assign Products</item>
+                        <item name="title" xsi:type="string">Assign Products</item>
+                        <item name="url" xsi:type="helper" helper="Devcrew\Brand\Helper\Data::getProductsGridUrl">URL</item>
+                        <item name="class" xsi:type="string">ajax</item>
+                    </argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

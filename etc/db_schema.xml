@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author DevCrew Team
+ * @copyright Copyright (c) 2023 DevCrew {https://devcrew.io}
+ */
+ -->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="devcrew_brand" resource="default" engine="innodb" comment="DevCrew Brands">
+        <column xsi:type="int" name="brand_id" padding="10" nullable="false" identity="true" unsigned="false"
+                comment="Brand ID"/>
+        <column xsi:type="smallint" name="status" nullable="false" identity="false" unsigned="false" default="1"
+                comment="Brand Status"/>
+        <column xsi:type="varchar" name="title" nullable="true" length="255" comment="Brand Title"/>
+        <column xsi:type="mediumtext" name="description" nullable="true" comment="Brand Description"/>
+        <column xsi:type="varchar" name="url_key" nullable="false" length="255" comment="Brand URL"/>
+        <column xsi:type="varchar" name="meta_title" nullable="true" length="255" comment="Brand SEO Meta Title"/>
+        <column xsi:type="text" name="meta_keywords" nullable="true" comment="Brand SEO Meta Keyword"/>
+        <column xsi:type="text" name="meta_description" nullable="true" comment="Brand SEO Meta Description"/>
+        <column xsi:type="varchar" name="image" nullable="true" length="255" comment="Brand Logo Image"/>
+        <column xsi:type="varchar" name="banner_image" nullable="true" length="255" comment="Brand Banner Image"/>
+        <column xsi:type="smallint" name="position" nullable="true" identity="false" unsigned="false"
+                comment="Brand Position"/>
+        <column xsi:type="timestamp" name="creation_time" default="CURRENT_TIMESTAMP" on_update="false"
+                nullable="false" comment="Creation Time"/>
+        <column xsi:type="timestamp" name="update_time" default="CURRENT_TIMESTAMP" on_update="true" nullable="false"
+                comment="Modification Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="brand_id"/>
+        </constraint>
+        <index referenceId="DEVCREW_BRAND_TITLE_DESCRIPTION_META_KEYWORDS_META_DESCRIPTION"
+               indexType="fulltext">
+            <column name="title"/>
+            <column name="description"/>
+            <column name="meta_keywords"/>
+            <column name="meta_description"/>
+        </index>
+    </table>
+    <table name="devcrew_brand_products" resource="default" comment="Devcrew Brand Products">
+        <column xsi:type="int" name="entity_id" padding="11" nullable="false" identity="true" unsigned="false"
+                comment="Entity ID"/>
+        <column xsi:type="int" name="brand_id" padding="10" nullable="false" identity="false" unsigned="false"
+                comment="Brand ID"/>
+        <column xsi:type="int" name="product_id" padding="10" nullable="false" identity="false" unsigned="true"
+                comment="Product ID"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="DEVCREW_BRAND_PRODUCTS_BRAND_ID_DEVCREW_BRAND_BRAND_ID"
+                    table="devcrew_brand_products" column="brand_id" referenceTable="devcrew_brand"
+                    referenceColumn="brand_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="DEVCREW_BRAND_PRODUCTS_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID"
+                    table="devcrew_brand_products" column="product_id" referenceTable="catalog_product_entity"
+                    referenceColumn="entity_id" onDelete="CASCADE"/>
+    </table>
+    <table name="devcrew_brand_store" resource="default" comment="Devcrew Brand Stores">
+        <column xsi:type="int" name="brand_id" padding="10" nullable="false" identity="false" unsigned="false"
+                comment="Brand ID"/>
+        <column xsi:type="smallint" name="store_id" nullable="false" identity="false" unsigned="true"
+                comment="Store ID"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="brand_id"/>
+            <column name="store_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="DEVCREW_BRAND_STORE_BRAND_ID_DEVCREW_BRAND_BRAND_ID"
+                    table="devcrew_brand_store" column="brand_id" referenceTable="devcrew_brand"
+                    referenceColumn="brand_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="DEVCREW_BRAND_STORE_STORE_ID" table="devcrew_brand_store"
+                    column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
+    </table>
+</schema>

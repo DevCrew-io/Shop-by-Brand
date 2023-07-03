@@ -1,0 +1,19 @@
+<?php
+/**
+ * @author DevCrew Team
+ * @copyright Copyright (c) 2023 DevCrew {https://devcrew.io}
+ */
+
+use Devcrew\Brand\Block\Product\ListBrandProduct;
+
+/** @var ListBrandProduct $block */
+$bannerImage = $block->getBrandBanner();
+if ($bannerImage):
+    ?>
+    <div class="category-image">
+        <img src="<?= $block->escapeUrl($bannerImage) ?>"
+             alt="<?= /* @noEscape */ 'Banner Image' ?>"
+             title="<?= /* @noEscape */ 'Banner Image' ?>"
+             class="image"/>
+    </div>
+<?php endif; ?>
